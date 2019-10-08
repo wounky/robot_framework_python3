@@ -1,29 +1,16 @@
 FROM python:3
 
-# Fill directories
-COPY . /app
+RUN mkdir robot_files
+RUN mkdir test_agent
 
-RUN apt-get install -y  \
-       build-essential \
-       fonts-liberation \
-       gconf-service \
-       libappindicator1 \
-       libasound2 \
-       libcurl3 \
-       libffi-dev \
-       libgconf-2-4 \
-       libindicator7 \
-       libnspr4 \
-       libnss3 \
-       libpango1.0-0 \
-       libssl-dev \
-       libxss1 \
-       unzip \
-       wget \
-       xdg-utils \
-       xvfb \
-       && \
-    pip install --upgrade pip
+# Essential tools and xvfb
+#   Xvfb performs all graphical operations 
+#   in virtual memory without showing any screen output
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    unzip \
+    curl \
+    xvfb    
 
 RUN apt-get install -f
 RUN apt-get update 
@@ -46,9 +33,7 @@ RUN mkdir -p /opt/selenium \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
 
 
+COPY . /app
 WORKDIR /app
 # Install requirements
 RUN pip install --force-reinstall -r requirements.txt
-
-# Execute listener and handler
-CMD ["python", "app.py"]
