@@ -1,4 +1,4 @@
-FROM cdl-hadoop-artifactory.asml.com/docker/python:3
+FROM python:3
 
 # Fill directories
 COPY . /app
