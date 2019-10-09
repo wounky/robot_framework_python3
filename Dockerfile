@@ -29,5 +29,14 @@ RUN mkdir -p /opt/selenium \
     && curl https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -o /opt/selenium/chromedriver_linux64.zip \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
 
+# To open Selenium .png snapshots
+RUN apt-get install feh
+
+# Fix broken pakcages
+RUN ap-get install -f
+
+# Update packages
 RUN apt-get update
+
+# Switch default directory
 WORKDIR /app
