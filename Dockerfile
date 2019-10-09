@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     unzip \
     curl \
-    xvfb
+    xvfb \
+    feh
 
 # Chrome browser to run the tests
 # When stable will become newer, a drivier version has to be updated manually!
@@ -28,9 +29,6 @@ RUN dpkg-divert --add --rename --divert /opt/google/chrome/google-chrome.real /o
 RUN mkdir -p /opt/selenium \
     && curl https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -o /opt/selenium/chromedriver_linux64.zip \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
-
-# To open Selenium .png snapshots
-RUN apt-get install feh
 
 # Fix broken pakcages
 RUN ap-get install -f
