@@ -31,6 +31,8 @@ RUN mkdir -p /opt/selenium \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
 
 # Fix broken pakcages
+RUN apt-get update –fix-missing
+RUN dpkg –configure -a
 RUN ap-get install -f
 
 # Update packages
