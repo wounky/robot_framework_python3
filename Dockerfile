@@ -32,7 +32,7 @@ RUN mkdir -p /opt/selenium \
 
 # Fix broken pakcages
 RUN apt-get update --fix-missing
-RUN ap-get install -f
+RUN apt-get install -f
 
 # Update packages
 RUN apt-get update
