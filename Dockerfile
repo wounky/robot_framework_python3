@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     xvfb \
     feh
 
-# Chrome browser to run the tests
+# ---- Install Chrome browser to run the tests ----
 # When stable will become newer, a drivier version has to be updated manually!
 RUN curl https://dl-ssl.google.com/linux/linux_signing_key.pub -o /tmp/google.pub \
     && cat /tmp/google.pub | apt-key add -; rm /tmp/google.pub \
@@ -37,5 +37,17 @@ RUN apt-get install -f
 # Update packages
 RUN apt-get update
 
+
 # Switch default directory
 WORKDIR /app
+
+# ---- Install HDB Client ----
+# Fill directory 
+COPY . /app
+
+# Install HDB Client
+RUN cd /app/bin/SAP_HANA_CLIENT/ && chmod +x hdbinst && ./hdbinst --batch
+
+# Move python files to that folder
+RUN cd /usr/sap/hdbclient/hdbcli/ && cp __init__.py  dbapi.py  resultrow.py /usr/local/lib/python3.7/  
+

@@ -1,0 +1,28 @@
+compversion-id: 73554900100200005390
+comptype: HDB_CLIENT
+keyname: HDB_CLIENT
+keycaption: SAP HANA CLIENT
+keyvendor: sap.com
+release: 2
+rev-number: 3
+rev-patchlevel: 144
+rev-changelist: 1551205008
+sp-number: 3
+sp-patchlevel: 144
+date: 2019-02-26 19:43:32
+platform: linuxx86_64
+fullversion: 2.3.144.1551205008
+compiletype: rel
+compilebranch: unknown
+git-hash: 0da21718cb8057f13541083c9559c79190809c76
+git-headcount: 63067
+git-mergetime: 2019-02-26 13:16:48 -0500
+git-mergeepoch: 1551205008
+compiler-version-full: gcc (SAP release 20141105, based on SUSE gcc43-4.3.4_20091019-0.37.30) 4.3.4 [gcc-4_3-branch revision 152973]
+compiler-version: GCC 4.3
+artifact-id: 2.3.144
+ngdbc-version: 2.3.62
+lcmsdk-artifact-id: 2.3.42
+commoncryptolib-version: 8.5.24
+version-note: Please see SAP Note https://launchpad.support.sap.com/#/notes/2339267 for further details about HANA client versions
+compatibility-note: Please see SAP Note https://launchpad.support.sap.com/#/notes/1906576 for further details about HANA client and server compatibility
